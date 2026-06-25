@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Десерты</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f7f2ed;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a3520;
+            font-size: 36px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #8a7a6a;
+            font-size: 16px;
+            margin-bottom: 35px;
+            border-bottom: 2px solid #e8ddd0;
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: #4a3520;
+            font-size: 26px;
+            margin: 40px 0 20px 0;
+            padding-left: 15px;
+            border-left: 5px solid #c4956a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        thead th {
+            background: #4a3520;
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        thead th:first-child {
+            width: 180px;
+            text-align: center;
+        }
+
+        thead th:nth-child(2) {
+            width: 180px;
+        }
+
+        thead th:nth-child(3) {
+            width: auto;
+        }
+
+        tbody td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee5dc;
+            vertical-align: middle;
+        }
+
+        tbody tr:hover {
+            background: #fcf8f5;
+        }
+
+        tbody td:nth-child(2) {
+            font-weight: 700;
+            color: #4a3520;
+            font-size: 15px;
+        }
+
+        tbody td:nth-child(3) {
+            line-height: 1.7;
+            color: #3d3d3d;
+        }
+
+        .photo-cell {
+            text-align: center;
+            vertical-align: middle !important;
+            width: 180px;
+        }
+
+        .photo-cell img {
+            max-width: 160px;
+            max-height: 120px;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: transform 0.2s;
+            background: #f5f0eb;
+        }
+
+        .photo-cell img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        }
+
+        .photo-placeholder {
+            color: #bbb0a5;
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        .seasonal-row {
+            background: #fcf8f3;
+        }
+
+        .seasonal-row:hover {
+            background: #f8f0e8 !important;
+        }
+
+        /* Номера строк */
+        .row-number {
+            display: inline-block;
+            background: #e8ddd0;
+            color: #4a3520;
+            font-weight: 700;
+            font-size: 12px;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        /* Адаптив */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            .photo-cell {
+                width: 100px;
+            }
+
+            .photo-cell img {
+                max-width: 90px;
+                max-height: 70px;
+            }
+
+            thead th:first-child {
+                width: 100px;
+            }
+
+            thead th:nth-child(2) {
+                width: 120px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                padding: 20px;
+            }
+            .photo-cell img:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🍰 ДЕСЕРТЫ</h1>
+    <div class="subtitle">Полный каталог • 26 основных + 2 сезонных</div>
+
+    <!-- ============ ОСНОВНАЯ ТАБЛИЦА ============ -->
+    <h2>Основные десерты</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Фото</th>
+                <th>Десерт</th>
+                <th>Состав</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- 1. Яблочный батончик -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image1.jpeg" alt="Яблочный батончик" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">1</span>Яблочный батончик</td>
+                <td>
+                    1. Песочное тесто<br>
+                    2. Яблочная начинка (яблоки, сахар, корица)<br>
+                    3. Карамель<br>
+                    4. Миндальные лепестки
+                </td>
+            </tr>
+
+            <!-- 2. Эклер карамельный -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image4.jpeg" alt="Эклер карамельный" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">2</span>Эклер карамельный</td>
+                <td>
+                    1. Заварное тесто<br>
+                    2. Крем карамельный<br>
+                    3. Карамельная глазурь
+                </td>
+            </tr>
+
+            <!-- 3. Наполеон -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image6.jpeg" alt="Наполеон" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">3</span>Наполеон</td>
+                <td>
+                    1. Тесто слоеное<br>
+                    2. Заварной крем
+                </td>
+            </tr>
+
+            <!-- 4. Птичье молоко -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image2.jpeg" alt="Птичье молоко" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">4</span>Птичье молоко</td>
+                <td>
+                    1. Бисквит<br>
+                    2. Суфле<br>
+                    3. Шоколадная глазурь
+                </td>
+            </tr>
+
+            <!-- 5. Анна Павлова -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image8.jpeg" alt="Анна Павлова" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">5</span>Анна Павлова</td>
+                <td>
+                    1. Крем маскарпоне (сироп мята-лимон, цедра лимона)<br>
+                    2. Посыпка: сухая соленая карамель, миндальные лепестки, голубика<br>
+                    3. Безе карамельное<br>
+                    4. Малиновое конфи
+                </td>
+            </tr>
+
+            <!-- 6. Keto Pavlova -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image7.jpeg" alt="Keto Pavlova" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">6</span>Keto Pavlova</td>
+                <td>
+                    1. Меренга (белок, эритритол, ксантановая камедь)<br>
+                    2. Крем маскарпоне (эритритол)
+                </td>
+            </tr>
+
+            <!-- 7. Меренговый рулет -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image5.jpeg" alt="Меренговый рулет" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">7</span>Меренговый рулет</td>
+                <td>
+                    1. Рулет<br>
+                    2. Крем клубнично-творожный<br>
+                    3. Безе
+                </td>
+            </tr>
+
+            <!-- 8. Эскимо шоколадное -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image10.jpeg" alt="Эскимо шоколадное" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">8</span>Эскимо шоколадное</td>
+                <td>
+                    1. Шоколадный бисквит<br>
+                    2. Шоколадная глазурь
+                </td>
+            </tr>
+
+            <!-- 9. Кейк-попс -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image12.jpeg" alt="Кейк-попс" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">9</span>Кейк-попс</td>
+                <td>
+                    1. Шоколадный бисквит<br>
+                    2. Темная глазурь<br>
+                    3. Посыпка
+                </td>
+            </tr>
+
+            <!-- 10. Эскимо ореховое -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image11.jpeg" alt="Эскимо ореховое" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">10</span>Эскимо ореховое</td>
+                <td>
+                    1. Бисквит ванильный<br>
+                    2. Арахис<br>
+                    3. Крем карамельный
+                </td>
+            </tr>
+
+            <!-- 11. Морковный десерт -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image3.jpeg" alt="Морковный десерт" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">11</span>Морковный десерт</td>
+                <td>
+                    1. Морковный бисквит<br>
+                    2. Крем творожный<br>
+                    3. Карамель<br>
+                    4. Грецкий орех
+                </td>
+            </tr>
+
+            <!-- 12. Фисташка-малина -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image29.jpeg" alt="Фисташка-малина" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">12</span>Фисташка-малина</td>
+                <td>
+                    1. Крем-чиз<br>
+                    2. Фисташковые коржи<br>
+                    3. Малиновое конфи<br>
+                    4. Посыпка: фисташковая крошка
+                </td>
+            </tr>
+
+            <!-- 13. Клубника в шоколаде -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image20.jpeg" alt="Клубника в шоколаде" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">13</span>Клубника в шоколаде</td>
+                <td>
+                    1. Шоколадный бисквит<br>
+                    2. Творожный крем<br>
+                    3. Крем для выравнивания<br>
+                    4. Клубничное конфи<br>
+                    5. Свежие ягоды<br>
+                    6. Миндальные лепестки
+                </td>
+            </tr>
+
+            <!-- 14. Ежевичный -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image24.jpeg" alt="Ежевичный" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">14</span>Ежевичный</td>
+                <td>
+                    1. Ванильный бисквит<br>
+                    2. Крем-чиз<br>
+                    3. Черничное конфи
+                </td>
+            </tr>
+
+            <!-- 15. Шоколадный медовик -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image22.jpeg" alt="Шоколадный медовик" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">15</span>Шоколадный медовик</td>
+                <td>
+                    1. Шоколадно-медовые коржи<br>
+                    2. Сметанный крем
+                </td>
+            </tr>
+
+            <!-- 16. Классический медовик -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image21.jpeg" alt="Классический медовик" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">16</span>Классический медовик</td>
+                <td>
+                    1. Медовые коржи<br>
+                    2. Сметанный крем
+                </td>
+            </tr>
+
+            <!-- 17. Тирамису -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image23.jpeg" alt="Тирамису" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">17</span>Тирамису</td>
+                <td>
+                    1. Печенье савоярди<br>
+                    2. Кофейная пропитка<br>
+                    3. Сливочно-сырный крем
+                </td>
+            </tr>
+
+            <!-- 18. Чизкейк -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image19.jpeg" alt="Чизкейк" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">18</span>Чизкейк</td>
+                <td>
+                    1. Творожная основа<br>
+                    2. Сливки<br>
+                    3. Ванильный экстракт
+                </td>
+            </tr>
+
+            <!-- 19. Бланмандже -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image15.jpeg" alt="Бланмандже" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">19</span>Бланмандже</td>
+                <td>
+                    1. Сливочная основа<br>
+                    2. Кофейная основа
+                </td>
+            </tr>
+
+            <!-- 20. Нежный -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image17.jpeg" alt="Нежный" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">20</span>Нежный</td>
+                <td>
+                    1. Сметанный крем<br>
+                    2. Конфи мандариновое<br>
+                    3. Бисквит шоколадный<br>
+                    4. Бисквит ванильный<br>
+                    5. Грецкий орех
+                </td>
+            </tr>
+
+            <!-- 21. Панна-котта малина -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image18.jpeg" alt="Панна-котта малина" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">21</span>Панна-котта малина</td>
+                <td>
+                    1. Сливочная основа<br>
+                    2. Малиновое пюре
+                </td>
+            </tr>
+
+            <!-- 22. Тирамису-матча -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image16.jpeg" alt="Тирамису-матча" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">22</span>Тирамису-матча</td>
+                <td>
+                    1. Крем маскарпоне<br>
+                    2. Печенье савоярди<br>
+                    3. Матча зелёная
+                </td>
+            </tr>
+
+            <!-- 23. Плуто -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image13.jpeg" alt="Плуто" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">23</span>Плуто</td>
+                <td>
+                    1. Творожный мусс<br>
+                    2. Велюр из темного шоколада<br>
+                    3. Песочная подложка
+                </td>
+            </tr>
+
+            <!-- 24. Умка -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image14.jpeg" alt="Умка" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">24</span>Умка</td>
+                <td>
+                    1. Творожный мусс<br>
+                    2. Вишнёвое пюре<br>
+                    3. Песочное тесто
+                </td>
+            </tr>
+
+            <!-- 25. Фаберже -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image28.jpeg" alt="Фаберже" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">25</span>Фаберже</td>
+                <td>
+                    1. Тарталетка (кокосовое масло, эритритол, яйцо)<br>
+                    2. Мусс творожный (эритрит)<br>
+                    3. Начинка манго-маракуйя<br>
+                    4. Шоколадный велюр<br>
+                    5. Кондурин
+                </td>
+            </tr>
+
+            <!-- 26. Сливки и Базилик -->
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image30.jpeg" alt="Сливки и Базилик" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">26</span>Сливки и Базилик</td>
+                <td>
+                    1. Мусс Лаймовый<br>
+                    2. Фисташковый бисквит<br>
+                    3. Мусс базилик<br>
+                    4. Сливки<br>
+                    5. Белый велюр (краситель зелёный)
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <!-- ============ СЕЗОННЫЕ ДЕСЕРТЫ ============ -->
+    <h2>🌸 СЕЗОННЫЕ ДЕСЕРТЫ</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Фото</th>
+                <th>Десерт</th>
+                <th>Состав</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- 1. Груша -->
+            <tr class="seasonal-row">
+                <td class="photo-cell">
+                    <img src="media/image27.jpeg" alt="Груша" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">1</span>Груша</td>
+                <td>
+                    1. Тарталетка<br>
+                    2. Курт груши (крахмал, пюре груши)<br>
+                    3. Дынный мусс<br>
+                    4. Начинка: крем карамельный
+                </td>
+            </tr>
+
+            <!-- 2. Дынная Роза -->
+            <tr class="seasonal-row">
+                <td class="photo-cell">
+                    <img src="media/image26.jpeg" alt="Дынная Роза" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">2</span>Дынная Роза</td>
+                <td>
+                    1. Дынный мусс<br>
+                    2. Начинка: пюре дыни<br>
+                    3. Печенье миндальное
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <div style="text-align: center; color: #bbb0a5; font-size: 13px; margin-top: 20px; border-top: 1px solid #e8ddd0; padding-top: 15px;">
+        Все фотографии находятся в папке media (image1.jpeg — image30.jpeg)
+    </div>
+
+</div>
+
+</body>
+</html>

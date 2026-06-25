@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Десерты X.LOVELLI</title>
+    <title>deserts x.lovelli</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,7 @@
         }
 
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             padding: 30px;
@@ -72,7 +72,7 @@
         }
 
         thead th:first-child {
-            width: 180px;
+            width: 250px; /* УВЕЛИЧИЛ ширину колонки с фото */
             text-align: center;
         }
 
@@ -85,7 +85,7 @@
         }
 
         tbody td {
-            padding: 12px 10px;
+            padding: 15px 12px;
             border-bottom: 1px solid #eee5dc;
             vertical-align: middle;
         }
@@ -108,24 +108,25 @@
         .photo-cell {
             text-align: center;
             vertical-align: middle !important;
-            width: 180px;
+            width: 250px;
         }
 
+        /* ========== УВЕЛИЧИЛ ФОТО ========== */
         .photo-cell img {
-            max-width: 160px;
-            max-height: 120px;
+            max-width: 220px;   /* было 160px */
+            max-height: 170px;  /* было 120px */
             width: auto;
             height: auto;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-            transition: transform 0.2s;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
             background: #f5f0eb;
         }
 
         .photo-cell img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
         }
 
         .photo-cell img[src=""] {
@@ -170,20 +171,20 @@
             }
 
             .photo-cell {
-                width: 100px;
+                width: 140px;
             }
 
             .photo-cell img {
-                max-width: 90px;
-                max-height: 70px;
+                max-width: 120px;
+                max-height: 100px;
             }
 
             thead th:first-child {
-                width: 100px;
+                width: 140px;
             }
 
             thead th:nth-child(2) {
-                width: 120px;
+                width: 110px;
             }
 
             .header-title {
@@ -215,11 +216,9 @@
 
 <div class="container">
 
-    <!-- ============ ЗАГОЛОВОК X.LOVELLI ============ -->
-    <div class="header-title">X.<span>LOVELLI</span></div>
+    <div class="header-title">deserts <span>x.lovelli</span></div>
     <div class="subtitle">🍰 Каталог десертов • 26 основных + 2 сезонных</div>
 
-    <!-- ============ ОСНОВНАЯ ТАБЛИЦА ============ -->
     <h2>Основные десерты</h2>
 
     <table>
@@ -579,7 +578,6 @@
         </tbody>
     </table>
 
-    <!-- ============ СЕЗОННЫЕ ДЕСЕРТЫ ============ -->
     <h2>🌸 СЕЗОННЫЕ ДЕСЕРТЫ</h2>
 
     <table>
@@ -624,7 +622,7 @@
 
     <br>
     <div style="text-align: center; color: #bbb0a5; font-size: 13px; margin-top: 20px; border-top: 1px solid #e8ddd0; padding-top: 15px;">
-        📸 Папка media • image1.jpeg — image30.jpeg
+        📸 deserts x.lovelli • Папка media • image1.jpeg — image30.jpeg
     </div>
 
 </div>

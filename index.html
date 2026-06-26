@@ -88,41 +88,6 @@
             transform: scale(1.05);
         }
 
-        .stars {
-            display: flex;
-            gap: 3px;
-            cursor: pointer;
-            margin-top: 3px;
-            justify-content: center;
-        }
-
-        .star {
-            font-size: 20px;
-            color: #ddd;
-            transition: 0.2s;
-            user-select: none;
-        }
-
-        .star.active {
-            color: #f5b301;
-        }
-
-        .star:hover {
-            transform: scale(1.2);
-        }
-
-        .rating-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .rating-label {
-            font-size: 11px;
-            color: #999;
-            margin-top: 2px;
-        }
-
         h2 {
             color: #1a1a1a;
             font-size: 26px;
@@ -144,35 +109,30 @@
         thead th {
             background: #f8f6f3;
             color: #1a1a1a;
-            padding: 12px 8px;
+            padding: 12px 10px;
             text-align: left;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-bottom: 2px solid #e0e0e0;
         }
 
         thead th:first-child {
-            width: 160px;
+            width: 200px;
             text-align: center;
         }
 
         thead th:nth-child(2) {
-            width: 160px;
+            width: 180px;
         }
 
         thead th:nth-child(3) {
             width: auto;
         }
 
-        thead th:last-child {
-            width: 140px;
-            text-align: center;
-        }
-
         tbody td {
-            padding: 10px 8px;
+            padding: 15px 12px;
             border-bottom: 1px solid #f0f0f0;
             vertical-align: middle;
             font-weight: 400;
@@ -186,14 +146,13 @@
         tbody td:nth-child(2) {
             font-weight: 700;
             color: #1a1a1a;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         tbody td:nth-child(3) {
-            line-height: 1.6;
+            line-height: 1.7;
             color: #333;
             font-weight: 400;
-            font-size: 13px;
         }
 
         .photo-cell {
@@ -202,8 +161,8 @@
         }
 
         .photo-cell img {
-            max-width: 130px;
-            max-height: 100px;
+            max-width: 180px;
+            max-height: 140px;
             width: auto;
             height: auto;
             object-fit: cover;
@@ -239,12 +198,12 @@
             color: #1a1a1a;
             font-weight: 700;
             font-size: 12px;
-            width: 26px;
-            height: 26px;
-            line-height: 26px;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
             text-align: center;
             border-radius: 50%;
-            margin-right: 6px;
+            margin-right: 8px;
         }
 
         .modal {
@@ -326,21 +285,14 @@
                 font-size: 12px;
             }
             .photo-cell img {
-                max-width: 90px;
-                max-height: 70px;
+                max-width: 120px;
+                max-height: 100px;
             }
             thead th:first-child {
-                width: 90px;
+                width: 130px;
             }
             thead th:nth-child(2) {
-                width: 110px;
-            }
-            thead th:last-child {
-                width: 110px;
-            }
-            thead th {
-                font-size: 10px;
-                padding: 8px 4px;
+                width: 120px;
             }
             .header-title {
                 font-size: 30px;
@@ -349,56 +301,30 @@
             h2 {
                 font-size: 20px;
             }
-            tbody td {
-                padding: 8px 4px;
-            }
-            tbody td:nth-child(3) {
-                font-size: 11px;
-            }
-            .stars .star {
-                font-size: 16px;
-            }
-            .rating-label {
-                font-size: 9px;
-            }
-            .share-btn {
-                padding: 10px 20px;
-                font-size: 14px;
+            thead th {
+                font-size: 10px;
             }
         }
 
         @media (max-width: 480px) {
             .photo-cell img {
-                max-width: 60px;
-                max-height: 50px;
+                max-width: 80px;
+                max-height: 70px;
             }
             thead th:first-child {
-                width: 70px;
+                width: 90px;
             }
-            thead th:last-child {
+            thead th:nth-child(2) {
                 width: 90px;
             }
             .header-title {
                 font-size: 22px;
             }
             tbody td {
-                padding: 6px 3px;
-            }
-            tbody td:nth-child(2) {
-                font-size: 12px;
+                padding: 8px 5px;
             }
             tbody td:nth-child(3) {
-                font-size: 10px;
-            }
-            .stars .star {
-                font-size: 13px;
-            }
-            .row-number {
-                width: 20px;
-                height: 20px;
-                line-height: 20px;
-                font-size: 10px;
-                margin-right: 4px;
+                font-size: 11px;
             }
         }
     </style>
@@ -407,499 +333,463 @@
 <div class="container">
 
     <div class="header-title">deserts <span>x.lovelli</span></div>
-    <div class="subtitle">🍰 Catalog of desserts • 27 main + 2 seasonal</div>
+    <div class="subtitle">🍰 Каталог десертов • 27 основных + 2 сезонных</div>
     <div class="dessert-count" id="dessertCount"></div>
 
     <div class="share-container">
-        <button class="share-btn" onclick="shareSite()">📤 Share</button>
+        <button class="share-btn" onclick="shareSite()">📤 Поделиться</button>
     </div>
 
-    <h2>Main desserts</h2>
+    <h2>Основные десерты</h2>
 
     <table>
         <thead>
             <tr>
-                <th>Photo</th>
-                <th>Dessert</th>
-                <th>Ingredients</th>
-                <th>Rating</th>
+                <th>Фото</th>
+                <th>Десерт</th>
+                <th>Состав</th>
             </tr>
         </thead>
         <tbody id="dessertTable">
 
-            <tr data-name="Apple bar">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image1.jpeg" alt="Apple bar" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image1.jpeg" alt="Яблочный батончик" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">1</span>Apple bar</td>
+                <td><span class="row-number">1</span>Яблочный батончик</td>
                 <td>
-                    1. Shortcrust pastry<br>
-                    2. Apple filling (apples, sugar, cinnamon)<br>
-                    3. Caramel<br>
-                    4. Almond petals
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Apple bar">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Песочное тесто<br>
+                    2. Яблочная начинка (яблоки, сахар, корица)<br>
+                    3. Карамель<br>
+                    4. Миндальные лепестки
                 </td>
             </tr>
 
-            <tr data-name="Caramel eclair">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image4.jpeg" alt="Caramel eclair" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image4.jpeg" alt="Эклер карамельный" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">2</span>Caramel eclair</td>
+                <td><span class="row-number">2</span>Эклер карамельный</td>
                 <td>
-                    1. Choux pastry<br>
-                    2. Caramel cream<br>
-                    3. Caramel glaze
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Caramel eclair">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Заварное тесто<br>
+                    2. Крем карамельный<br>
+                    3. Карамельная глазурь
                 </td>
             </tr>
 
-            <tr data-name="Napoleon">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image6.jpeg" alt="Napoleon" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image6.jpeg" alt="Наполеон" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">3</span>Napoleon</td>
+                <td><span class="row-number">3</span>Наполеон</td>
                 <td>
-                    1. Puff pastry<br>
-                    2. Custard
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Napoleon">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Тесто слоеное<br>
+                    2. Заварной крем
                 </td>
             </tr>
 
-            <tr data-name="Bird's milk">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image2.jpeg" alt="Bird's milk" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image2.jpeg" alt="Птичье молоко" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">4</span>Bird's milk</td>
+                <td><span class="row-number">4</span>Птичье молоко</td>
                 <td>
-                    1. Sponge cake<br>
-                    2. Souffle<br>
-                    3. Chocolate glaze
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Bird's milk">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Бисквит<br>
+                    2. Суфле<br>
+                    3. Шоколадная глазурь
                 </td>
             </tr>
 
-            <tr data-name="Anna Pavlova">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image8.jpeg" alt="Anna Pavlova" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image8.jpeg" alt="Анна Павлова" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">5</span>Anna Pavlova</td>
+                <td><span class="row-number">5</span>Анна Павлова</td>
                 <td>
-                    1. Mascarpone cream (mint-lemon syrup, lemon zest)<br>
-                    2. Topping: dry salted caramel, almond petals, blueberries<br>
-                    3. Caramel meringue<br>
-                    4. Raspberry confit
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Anna Pavlova">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Крем маскарпоне (сироп мята-лимон, цедра лимона)<br>
+                    2. Посыпка: сухая соленая карамель, миндальные лепестки, голубика<br>
+                    3. Безе карамельное<br>
+                    4. Малиновое конфи
                 </td>
             </tr>
 
-            <tr data-name="Keto Pavlova">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image7.jpeg" alt="Keto Pavlova" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image7.jpeg" alt="Keto Pavlova" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">6</span>Keto Pavlova</td>
                 <td>
-                    1. Meringue (egg white, erythritol, xanthan gum)<br>
-                    2. Mascarpone cream (erythritol)
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Keto Pavlova">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Меренга (белок, эритритол, ксантановая камедь)<br>
+                    2. Крем маскарпоне (эритритол)
                 </td>
             </tr>
 
-            <tr data-name="Meringue roll">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image5.jpeg" alt="Meringue roll" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image5.jpeg" alt="Меренговый рулет" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">7</span>Meringue roll</td>
+                <td><span class="row-number">7</span>Меренговый рулет</td>
                 <td>
-                    1. Roll<br>
-                    2. Strawberry-curd cream<br>
-                    3. Meringue
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Meringue roll">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Рулет<br>
+                    2. Крем клубнично-творожный<br>
+                    3. Безе
                 </td>
             </tr>
 
-            <tr data-name="Chocolate ice cream">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image10.jpeg" alt="Chocolate ice cream" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image10.jpeg" alt="Эскимо шоколадное" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">8</span>Chocolate ice cream</td>
+                <td><span class="row-number">8</span>Эскимо шоколадное</td>
                 <td>
-                    1. Chocolate sponge cake<br>
-                    2. Chocolate glaze
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Chocolate ice cream">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Шоколадный бисквит<br>
+                    2. Шоколадная глазурь
                 </td>
             </tr>
 
-            <tr data-name="Cake pop">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image12.jpeg" alt="Cake pop" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image12.jpeg" alt="Кейк-попс" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">9</span>Cake pop</td>
+                <td><span class="row-number">9</span>Кейк-попс</td>
                 <td>
-                    1. Chocolate sponge cake<br>
-                    2. Dark glaze<br>
-                    3. Sprinkles
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Cake pop">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Шоколадный бисквит<br>
+                    2. Темная глазурь<br>
+                    3. Посыпка
                 </td>
             </tr>
 
-            <tr data-name="Nut ice cream">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image11.jpeg" alt="Nut ice cream" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image11.jpeg" alt="Эскимо ореховое" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">10</span>Nut ice cream</td>
+                <td><span class="row-number">10</span>Эскимо ореховое</td>
                 <td>
-                    1. Vanilla sponge cake<br>
-                    2. Peanuts<br>
-                    3. Caramel cream
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Nut ice cream">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Бисквит ванильный<br>
+                    2. Арахис<br>
+                    3. Крем карамельный
                 </td>
             </tr>
 
-            <tr data-name="Carrot dessert">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image3.jpeg" alt="Carrot dessert" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image3.jpeg" alt="Морковный десерт" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">11</span>Carrot dessert</td>
+                <td><span class="row-number">11</span>Морковный десерт</td>
                 <td>
-                    1. Carrot sponge cake<br>
-                    2. Curd cream<br>
-                    3. Caramel<br>
-                    4. Walnut
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Carrot dessert">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Морковный бисквит<br>
+                    2. Крем творожный<br>
+                    3. Карамель<br>
+                    4. Грецкий орех
                 </td>
             </tr>
 
-            <tr data-name="Pistachio-raspberry">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image29.jpeg" alt="Pistachio-raspberry" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image29.jpeg" alt="Фисташка-малина" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">12</span>Pistachio-raspberry</td>
+                <td><span class="row-number">12</span>Фисташка-малина</td>
                 <td>
-                    1. Cream cheese<br>
-                    2. Pistachio layers<br>
-                    3. Raspberry confit<br>
-                    4. Pistachio crumble
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Pistachio-raspberry">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Крем-чиз<br>
+                    2. Фисташковые коржи<br>
+                    3. Малиновое конфи<br>
+                    4. Посыпка: фисташковая крошка
                 </td>
             </tr>
 
-            <tr data-name="Strawberry in chocolate">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image20.jpeg" alt="Strawberry in chocolate" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image20.jpeg" alt="Клубника в шоколаде" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">13</span>Strawberry in chocolate</td>
+                <td><span class="row-number">13</span>Клубника в шоколаде</td>
                 <td>
-                    1. Chocolate sponge cake<br>
-                    2. Curd cream<br>
-                    3. Smoothing cream<br>
-                    4. Strawberry confit<br>
-                    5. Fresh berries<br>
-                    6. Almond petals
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Strawberry in chocolate">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Шоколадный бисквит<br>
+                    2. Творожный крем<br>
+                    3. Крем для выравнивания<br>
+                    4. Клубничное конфи<br>
+                    5. Свежие ягоды<br>
+                    6. Миндальные лепестки
                 </td>
             </tr>
 
-            <tr data-name="Blackberry">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image24.jpeg" alt="Blackberry" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image24.jpeg" alt="Ежевичный" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">14</span>Blackberry</td>
+                <td><span class="row-number">14</span>Ежевичный</td>
                 <td>
-                    1. Vanilla sponge cake<br>
-                    2. Cream cheese<br>
-                    3. Blueberry confit
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Blackberry">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Ванильный бисквит<br>
+                    2. Крем-чиз<br>
+                    3. Черничное конфи
                 </td>
             </tr>
 
-            <tr data-name="Chocolate honey cake">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image22.jpeg" alt="Chocolate honey cake" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image22.jpeg" alt="Шоколадный медовик" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">15</span>Chocolate honey cake</td>
+                <td><span class="row-number">15</span>Шоколадный медовик</td>
                 <td>
-                    1. Chocolate-honey layers<br>
-                    2. Sour cream
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Chocolate honey cake">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Шоколадно-медовые коржи<br>
+                    2. Сметанный крем
                 </td>
             </tr>
 
-            <tr data-name="Classic honey cake">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image21.jpeg" alt="Classic honey cake" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image21.jpeg" alt="Классический медовик" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">16</span>Classic honey cake</td>
+                <td><span class="row-number">16</span>Классический медовик</td>
                 <td>
-                    1. Honey layers<br>
-                    2. Sour cream
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Classic honey cake">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Медовые коржи<br>
+                    2. Сметанный крем
                 </td>
             </tr>
 
-            <tr data-name="Tiramisu">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image23.jpeg" alt="Tiramisu" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image23.jpeg" alt="Тирамису" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">17</span>Tiramisu</td>
+                <td><span class="row-number">17</span>Тирамису</td>
                 <td>
-                    1. Savoiardi cookies<br>
-                    2. Coffee soaking<br>
-                    3. Cream cheese cream
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Tiramisu">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Печенье савоярди<br>
+                    2. Кофейная пропитка<br>
+                    3. Сливочно-сырный крем
                 </td>
             </tr>
 
-            <tr data-name="Cheesecake">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image19.jpeg" alt="Cheesecake" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image19.jpeg" alt="Чизкейк" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">18</span>Cheesecake</td>
+                <td><span class="row-number">18</span>Чизкейк</td>
                 <td>
-                    1. Curd base<br>
-                    2. Cream<br>
-                    3. Vanilla extract
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Cheesecake">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Творожная основа<br>
+                    2. Сливки<br>
+                    3. Ванильный экстракт
                 </td>
             </tr>
 
-            <tr data-name="Blancmange">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image15.jpeg" alt="Blancmange" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image15.jpeg" alt="Бланмандже" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">19</span>Blancmange</td>
+                <td><span class="row-number">19</span>Бланмандже</td>
                 <td>
-                    1. Cream base<br>
-                    2. Coffee base
-                </td>
-                <td>
-                    <div class="rating-container" data-dessert="Blancmange">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
-                        </div>
-                        <span class="rating-label">0 ratings</span>
-                    </div>
+                    1. Сливочная основа<br>
+                    2. Кофейная основа
                 </td>
             </tr>
 
-            <tr data-name="Tender">
+            <tr>
                 <td class="photo-cell">
-                    <img src="media/image17.jpeg" alt="Tender" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Not found</span>'">
+                    <img src="media/image17.jpeg" alt="Нежный" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
-                <td><span class="row-number">20</span>Tender</td>
+                <td><span class="row-number">20</span>Нежный</td>
                 <td>
-                    1. Sour cream<br>
-                    2. Mandarin confit<br>
-                    3. Chocolate sponge cake<br>
-                    4. Vanilla sponge cake<br>
-                    5. Walnut
+                    1. Сметанный крем<br>
+                    2. Конфи мандариновое<br>
+                    3. Бисквит шоколадный<br>
+                    4. Бисквит ванильный<br>
+                    5. Грецкий орех
                 </td>
+            </tr>
+
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image18.jpeg" alt="Панна-котта малина" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">21</span>Панна-котта малина</td>
                 <td>
-                    <div class="rating-container" data-dessert="Tender">
-                        <div class="stars" data-rating="0">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4
+                    1. Сливочная основа<br>
+                    2. Малиновое пюре
+                </td>
+            </tr>
+
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image16.jpeg" alt="Тирамису-матча" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">22</span>Тирамису-матча</td>
+                <td>
+                    1. Крем маскарпоне<br>
+                    2. Печенье савоярди<br>
+                    3. Матча зелёная
+                </td>
+            </tr>
+
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image13.jpeg" alt="Плуто" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">23</span>Плуто</td>
+                <td>
+                    1. Творожный мусс<br>
+                    2. Велюр из темного шоколада<br>
+                    3. Песочная подложка
+                </td>
+            </tr>
+
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image14.jpeg" alt="Умка" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">24</span>Умка</td>
+                <td>
+                    1. Творожный мусс<br>
+                    2. Вишнёвое пюре<br>
+                    3. Песочное тесто
+                </td>
+            </tr>
+
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image28.jpeg" alt="Фаберже" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">25</span>Фаберже</td>
+                <td>
+                    1. Тарталетка (кокосовое масло, эритритол, яйцо)<br>
+                    2. Мусс творожный (эритрит)<br>
+                    3. Начинка манго-маракуйя<br>
+                    4. Шоколадный велюр<br>
+                    5. Кондурин
+                </td>
+            </tr>
+
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image30.jpeg" alt="Сливки и Базилик" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">26</span>Сливки и Базилик</td>
+                <td>
+                    1. Мусс Лаймовый<br>
+                    2. Фисташковый бисквит<br>
+                    3. Мусс базилик<br>
+                    4. Сливки<br>
+                    5. Белый велюр (краситель зелёный)
+                </td>
+            </tr>
+
+            <tr>
+                <td class="photo-cell">
+                    <img src="media/image9.jpeg" alt="Дубай" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">27</span>Дубай</td>
+                <td>
+                    1. Фисташковая начинка (тесто катаифи, фисташковая паста, белый шоколад)<br>
+                    2. Велюр шоколадный
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <h2>🌸 СЕЗОННЫЕ ДЕСЕРТЫ</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Фото</th>
+                <th>Десерт</th>
+                <th>Состав</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr class="seasonal-row">
+                <td class="photo-cell">
+                    <img src="media/image27.jpeg" alt="Груша" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">1</span>Груша</td>
+                <td>
+                    1. Тарталетка<br>
+                    2. Курт груши (крахмал, пюре груши)<br>
+                    3. Дынный мусс<br>
+                    4. Начинка: крем карамельный
+                </td>
+            </tr>
+
+            <tr class="seasonal-row">
+                <td class="photo-cell">
+                    <img src="media/image26.jpeg" alt="Дынная Роза" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                </td>
+                <td><span class="row-number">2</span>Дынная Роза</td>
+                <td>
+                    1. Дынный мусс<br>
+                    2. Начинка: пюре дыни<br>
+                    3. Печенье миндальное
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<div id="photoModal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<button onclick="topFunction()" id="topBtn">⬆</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var rows = document.querySelectorAll('#dessertTable tr');
+        var count = rows.length;
+        document.getElementById('dessertCount').textContent = '🍰 Всего десертов: ' + count;
+    });
+
+    function shareSite() {
+        var url = window.location.href;
+        if (navigator.share) {
+            navigator.share({
+                title: 'deserts x.lovelli',
+                text: '🍰 Смотри, какие десерты!',
+                url: url
+            }).catch(function() {});
+        } else {
+            navigator.clipboard.writeText(url).then(function() {
+                alert('🔗 Ссылка скопирована! Отправь другу.');
+            }).catch(function() {
+                prompt('📤 Скопируй ссылку и отправь другу:', url);
+            });
+        }
+    }
+
+    function openModal(src) {
+        var modal = document.getElementById('photoModal');
+        var img = document.getElementById('modalImage');
+        modal.style.display = 'block';
+        img.src = src;
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        var modal = document.getElementById('photoModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    window.onscroll = function() {
+        var btn = document.getElementById('topBtn');
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    };
+
+    function topFunction() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

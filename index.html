@@ -170,6 +170,7 @@
             margin-right: 8px;
         }
 
+        /* ===== ТЕЛЕФОН - УВЕЛИЧЕННЫЕ ФОТО ===== */
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -178,20 +179,20 @@
                 padding: 15px;
             }
             table {
-                font-size: 12px;
+                font-size: 13px;
             }
             .photo-cell {
-                width: 140px;
+                width: 180px; /* Увеличил ширину колонки */
             }
             .photo-cell img {
-                max-width: 120px;
-                max-height: 100px;
+                max-width: 160px; /* Было 120px */
+                max-height: 130px; /* Было 100px */
             }
             thead th:first-child {
-                width: 140px;
+                width: 180px;
             }
             thead th:nth-child(2) {
-                width: 110px;
+                width: 130px;
             }
             .header-title {
                 font-size: 30px;
@@ -205,16 +206,17 @@
             }
         }
 
+        /* ===== МАЛЕНЬКИЕ ТЕЛЕФОНЫ ===== */
         @media (max-width: 480px) {
             .photo-cell img {
-                max-width: 80px;
-                max-height: 70px;
+                max-width: 130px; /* Было 80px */
+                max-height: 110px; /* Было 70px */
             }
             .photo-cell {
-                width: 100px;
+                width: 140px;
             }
             thead th:first-child {
-                width: 100px;
+                width: 140px;
             }
             .header-title {
                 font-size: 24px;

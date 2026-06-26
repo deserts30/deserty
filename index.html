@@ -56,6 +56,86 @@
             letter-spacing: 1px;
         }
 
+        /* ===== КНОПКА ПОДЕЛИТЬСЯ ===== */
+        .share-container {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .share-btn {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .share-btn:hover {
+            background: #a67c52;
+            transform: scale(1.05);
+        }
+
+        .share-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ===== МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+            cursor: pointer;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.4s;
+        }
+
+        @keyframes zoom {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: 700;
+            transition: 0.3s;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .close-modal:hover {
+            color: #a67c52;
+        }
+
+        /* ===== ТАБЛИЦА ===== */
         h2 {
             color: #1a1a1a;
             font-size: 26px;
@@ -125,6 +205,7 @@
             width: 250px;
         }
 
+        /* ===== ФОТО С КУРСОРОМ ===== */
         .photo-cell img {
             max-width: 220px;
             max-height: 170px;
@@ -136,6 +217,7 @@
             transition: transform 0.3s ease;
             background: #faf8f6;
             border: 1px solid #f0f0f0;
+            cursor: pointer;
         }
 
         .photo-cell img:hover {
@@ -170,7 +252,7 @@
             margin-right: 8px;
         }
 
-        /* ===== ТЕЛЕФОН - УВЕЛИЧЕННЫЕ ФОТО ===== */
+        /* ===== ТЕЛЕФОН ===== */
         @media (max-width: 768px) {
             body {
                 padding: 15px;
@@ -182,11 +264,11 @@
                 font-size: 13px;
             }
             .photo-cell {
-                width: 180px; /* Увеличил ширину колонки */
+                width: 180px;
             }
             .photo-cell img {
-                max-width: 160px; /* Было 120px */
-                max-height: 130px; /* Было 100px */
+                max-width: 160px;
+                max-height: 130px;
             }
             thead th:first-child {
                 width: 180px;
@@ -204,13 +286,16 @@
             thead th {
                 font-size: 11px;
             }
+            .share-btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
 
-        /* ===== МАЛЕНЬКИЕ ТЕЛЕФОНЫ ===== */
         @media (max-width: 480px) {
             .photo-cell img {
-                max-width: 130px; /* Было 80px */
-                max-height: 110px; /* Было 70px */
+                max-width: 130px;
+                max-height: 110px;
             }
             .photo-cell {
                 width: 140px;
@@ -231,7 +316,12 @@
 <div class="container">
 
     <div class="header-title">deserts <span>x.lovelli</span></div>
-    <div class="subtitle">🍰 Каталог десертов • 26 основных + 2 сезонных</div>
+    <div class="subtitle">🍰 Каталог десертов • 27 основных + 2 сезонных</div>
+
+    <!-- ===== КНОПКА ПОДЕЛИТЬСЯ ===== -->
+    <div class="share-container">
+        <button class="share-btn" onclick="shareSite()">📤 Поделиться</button>
+    </div>
 
     <h2>Основные десерты</h2>
 
@@ -248,7 +338,7 @@
             <!-- 1. Яблочный батончик -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image1.jpeg" alt="Яблочный батончик" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image1.jpeg" alt="Яблочный батончик" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">1</span>Яблочный батончик</td>
                 <td>
@@ -262,7 +352,7 @@
             <!-- 2. Эклер карамельный -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image4.jpeg" alt="Эклер карамельный" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image4.jpeg" alt="Эклер карамельный" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">2</span>Эклер карамельный</td>
                 <td>
@@ -275,7 +365,7 @@
             <!-- 3. Наполеон -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image6.jpeg" alt="Наполеон" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image6.jpeg" alt="Наполеон" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">3</span>Наполеон</td>
                 <td>
@@ -287,7 +377,7 @@
             <!-- 4. Птичье молоко -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image2.jpeg" alt="Птичье молоко" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image2.jpeg" alt="Птичье молоко" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">4</span>Птичье молоко</td>
                 <td>
@@ -300,7 +390,7 @@
             <!-- 5. Анна Павлова -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image8.jpeg" alt="Анна Павлова" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image8.jpeg" alt="Анна Павлова" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">5</span>Анна Павлова</td>
                 <td>
@@ -314,7 +404,7 @@
             <!-- 6. Keto Pavlova -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image7.jpeg" alt="Keto Pavlova" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image7.jpeg" alt="Keto Pavlova" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">6</span>Keto Pavlova</td>
                 <td>
@@ -326,7 +416,7 @@
             <!-- 7. Меренговый рулет -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image5.jpeg" alt="Меренговый рулет" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image5.jpeg" alt="Меренговый рулет" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">7</span>Меренговый рулет</td>
                 <td>
@@ -339,7 +429,7 @@
             <!-- 8. Эскимо шоколадное -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image10.jpeg" alt="Эскимо шоколадное" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image10.jpeg" alt="Эскимо шоколадное" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">8</span>Эскимо шоколадное</td>
                 <td>
@@ -351,7 +441,7 @@
             <!-- 9. Кейк-попс -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image12.jpeg" alt="Кейк-попс" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image12.jpeg" alt="Кейк-попс" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">9</span>Кейк-попс</td>
                 <td>
@@ -364,7 +454,7 @@
             <!-- 10. Эскимо ореховое -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image11.jpeg" alt="Эскимо ореховое" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image11.jpeg" alt="Эскимо ореховое" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">10</span>Эскимо ореховое</td>
                 <td>
@@ -377,7 +467,7 @@
             <!-- 11. Морковный десерт -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image3.jpeg" alt="Морковный десерт" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image3.jpeg" alt="Морковный десерт" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">11</span>Морковный десерт</td>
                 <td>
@@ -391,7 +481,7 @@
             <!-- 12. Фисташка-малина -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image29.jpeg" alt="Фисташка-малина" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image29.jpeg" alt="Фисташка-малина" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">12</span>Фисташка-малина</td>
                 <td>
@@ -405,7 +495,7 @@
             <!-- 13. Клубника в шоколаде -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image20.jpeg" alt="Клубника в шоколаде" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image20.jpeg" alt="Клубника в шоколаде" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">13</span>Клубника в шоколаде</td>
                 <td>
@@ -421,7 +511,7 @@
             <!-- 14. Ежевичный -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image24.jpeg" alt="Ежевичный" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image24.jpeg" alt="Ежевичный" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">14</span>Ежевичный</td>
                 <td>
@@ -434,7 +524,7 @@
             <!-- 15. Шоколадный медовик -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image22.jpeg" alt="Шоколадный медовик" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image22.jpeg" alt="Шоколадный медовик" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">15</span>Шоколадный медовик</td>
                 <td>
@@ -446,7 +536,7 @@
             <!-- 16. Классический медовик -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image21.jpeg" alt="Классический медовик" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image21.jpeg" alt="Классический медовик" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">16</span>Классический медовик</td>
                 <td>
@@ -458,7 +548,7 @@
             <!-- 17. Тирамису -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image23.jpeg" alt="Тирамису" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image23.jpeg" alt="Тирамису" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">17</span>Тирамису</td>
                 <td>
@@ -471,7 +561,7 @@
             <!-- 18. Чизкейк -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image19.jpeg" alt="Чизкейк" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image19.jpeg" alt="Чизкейк" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">18</span>Чизкейк</td>
                 <td>
@@ -484,7 +574,7 @@
             <!-- 19. Бланмандже -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image15.jpeg" alt="Бланмандже" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image15.jpeg" alt="Бланмандже" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">19</span>Бланмандже</td>
                 <td>
@@ -496,7 +586,7 @@
             <!-- 20. Нежный -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image17.jpeg" alt="Нежный" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image17.jpeg" alt="Нежный" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">20</span>Нежный</td>
                 <td>
@@ -511,7 +601,7 @@
             <!-- 21. Панна-котта малина -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image18.jpeg" alt="Панна-котта малина" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image18.jpeg" alt="Панна-котта малина" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">21</span>Панна-котта малина</td>
                 <td>
@@ -523,7 +613,7 @@
             <!-- 22. Тирамису-матча -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image16.jpeg" alt="Тирамису-матча" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image16.jpeg" alt="Тирамису-матча" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">22</span>Тирамису-матча</td>
                 <td>
@@ -536,7 +626,7 @@
             <!-- 23. Плуто -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image13.jpeg" alt="Плуто" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image13.jpeg" alt="Плуто" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">23</span>Плуто</td>
                 <td>
@@ -549,7 +639,7 @@
             <!-- 24. Умка -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image14.jpeg" alt="Умка" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image14.jpeg" alt="Умка" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">24</span>Умка</td>
                 <td>
@@ -562,7 +652,7 @@
             <!-- 25. Фаберже -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image28.jpeg" alt="Фаберже" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image28.jpeg" alt="Фаберже" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">25</span>Фаберже</td>
                 <td>
@@ -577,7 +667,7 @@
             <!-- 26. Сливки и Базилик -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image30.jpeg" alt="Сливки и Базилик" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image30.jpeg" alt="Сливки и Базилик" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">26</span>Сливки и Базилик</td>
                 <td>
@@ -592,7 +682,7 @@
             <!-- 27. Дубай -->
             <tr>
                 <td class="photo-cell">
-                    <img src="media/image9.jpeg" alt="Дубай" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image9.jpeg" alt="Дубай" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">27</span>Дубай</td>
                 <td>
@@ -618,7 +708,7 @@
 
             <tr class="seasonal-row">
                 <td class="photo-cell">
-                    <img src="media/image27.jpeg" alt="Груша" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image27.jpeg" alt="Груша" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">1</span>Груша</td>
                 <td>
@@ -631,7 +721,7 @@
 
             <tr class="seasonal-row">
                 <td class="photo-cell">
-                    <img src="media/image26.jpeg" alt="Дынная Роза" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
+                    <img src="media/image26.jpeg" alt="Дынная Роза" onclick="openModal(this.src)" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
                 </td>
                 <td><span class="row-number">2</span>Дынная Роза</td>
                 <td>
@@ -646,7 +736,13 @@
 
 </div>
 
-<!-- КНОПКА "НАВЕРХ" -->
+<!-- ===== МОДАЛЬНОЕ ОКНО ДЛЯ ФОТО ===== -->
+<div id="photoModal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<!-- ===== КНОПКА "НАВЕРХ" ===== -->
 <button onclick="topFunction()" id="topBtn" title="Наверх">⬆</button>
 
 <style>
@@ -675,14 +771,58 @@
 </style>
 
 <script>
-    window.onscroll = function() {
-        let btn = document.getElementById("topBtn");
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            btn.style.display = "block";
+    // ===== КНОПКА "ПОДЕЛИТЬСЯ" =====
+    function shareSite() {
+        const url = window.location.href;
+        if (navigator.share) {
+            navigator.share({
+                title: 'deserts x.lovelli',
+                text: '🍰 Смотри, какие десерты!',
+                url: url
+            }).catch(() => {});
         } else {
-            btn.style.display = "none";
+            // Если Web Share API не поддерживается — копируем ссылку
+            navigator.clipboard.writeText(url).then(() => {
+                alert('🔗 Ссылка скопирована в буфер обмена! Отправь её другу.');
+            }).catch(() => {
+                // Если копирование не работает — показываем ссылку
+                prompt('📤 Скопируй ссылку и отправь другу:', url);
+            });
+        }
+    }
+
+    // ===== УВЕЛИЧЕНИЕ ФОТО ПРИ КЛИКЕ =====
+    function openModal(src) {
+        const modal = document.getElementById('photoModal');
+        const img = document.getElementById('modalImage');
+        modal.style.display = 'block';
+        img.src = src;
+        document.body.style.overflow = 'hidden'; // блокируем скролл
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('photoModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // возвращаем скролл
+    }
+
+    // Закрыть по Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    // ===== КНОПКА "НАВЕРХ" =====
+    window.onscroll = function() {
+        let btn = document.getElementById('topBtn');
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
         }
     };
+
     function topFunction() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }

@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deserts x.lovelli</title>
+    <!-- Подключаем шрифт Montserrat, как на основном сайте -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
     <style>
+        /* --- Стили, как на xlovelli.ru --- */
         * {
             margin: 0;
             padding: 0;
@@ -12,67 +17,80 @@
         }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f7f2ed;
-            padding: 40px 20px;
+            /* Основной фон сайта */
+            background: #ffffff;
+            /* Основной шрифт */
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a1a;
+            padding: 0;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: #ffffff;
+            padding: 30px 20px;
         }
 
+        /* Заголовки */
         .header-title {
             text-align: center;
             font-size: 48px;
-            font-weight: 800;
-            color: #4a3520;
-            letter-spacing: 4px;
+            font-weight: 900;
+            color: #1a1a1a;
+            letter-spacing: 6px;
             margin-bottom: 5px;
+            text-transform: uppercase;
         }
 
         .header-title span {
-            color: #c4956a;
+            color: #a67c52; /* Золотистый акцент, как у бренда */
         }
 
         .subtitle {
             text-align: center;
-            color: #8a7a6a;
+            color: #666;
             font-size: 16px;
+            font-weight: 400;
             margin-bottom: 35px;
-            border-bottom: 2px solid #e8ddd0;
+            border-bottom: 2px solid #f0f0f0;
             padding-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         h2 {
-            color: #4a3520;
+            color: #1a1a1a;
             font-size: 26px;
+            font-weight: 800;
             margin: 40px 0 20px 0;
             padding-left: 15px;
-            border-left: 5px solid #c4956a;
+            border-left: 5px solid #a67c52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        /* Таблица */
         table {
             width: 100%;
             border-collapse: collapse;
             font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         thead th {
-            background: #4a3520;
-            color: white;
+            background: #f8f6f3; /* Светлый фон, как в шапке сайта */
+            color: #1a1a1a;
             padding: 12px 10px;
             text-align: left;
-            font-weight: 600;
-            font-size: 15px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #e0e0e0;
         }
 
         thead th:first-child {
-            width: 250px; /* УВЕЛИЧИЛ ширину колонки с фото */
+            width: 250px;
             text-align: center;
         }
 
@@ -80,77 +98,71 @@
             width: 180px;
         }
 
-        thead th:nth-child(3) {
-            width: auto;
-        }
-
         tbody td {
             padding: 15px 12px;
-            border-bottom: 1px solid #eee5dc;
+            border-bottom: 1px solid #f0f0f0;
             vertical-align: middle;
+            font-weight: 400;
         }
 
         tbody tr:hover {
-            background: #fcf8f5;
+            background: #faf8f6; /* Легкий hover, как на основном сайте */
         }
 
         tbody td:nth-child(2) {
             font-weight: 700;
-            color: #4a3520;
+            color: #1a1a1a;
             font-size: 15px;
         }
 
         tbody td:nth-child(3) {
             line-height: 1.7;
-            color: #3d3d3d;
+            color: #333;
+            font-weight: 400;
         }
 
+        /* Ячейка с фото */
         .photo-cell {
             text-align: center;
             vertical-align: middle !important;
             width: 250px;
         }
 
-        /* ========== УВЕЛИЧИЛ ФОТО ========== */
         .photo-cell img {
-            max-width: 220px;   /* было 160px */
-            max-height: 170px;  /* было 120px */
+            max-width: 220px;
+            max-height: 170px;
             width: auto;
             height: auto;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
-            transition: transform 0.3s;
-            background: #f5f0eb;
+            border-radius: 8px;
+            box-shadow: none; /* Убираем тень, как на основном сайте */
+            transition: transform 0.3s ease;
+            background: #faf8f6;
+            border: 1px solid #f0f0f0;
         }
 
         .photo-cell img:hover {
-            transform: scale(1.08);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-        }
-
-        .photo-cell img[src=""] {
-            display: none;
+            transform: scale(1.02); /* Легкое увеличение */
         }
 
         .photo-placeholder {
-            color: #bbb0a5;
+            color: #999;
             font-size: 13px;
             font-style: italic;
         }
 
         .seasonal-row {
-            background: #fcf8f3;
+            background: #fcfaf7;
         }
 
         .seasonal-row:hover {
-            background: #f8f0e8 !important;
+            background: #f8f4ef !important;
         }
 
         .row-number {
             display: inline-block;
-            background: #e8ddd0;
-            color: #4a3520;
+            background: #f0ede8;
+            color: #1a1a1a;
             font-weight: 700;
             font-size: 12px;
             width: 28px;
@@ -161,6 +173,7 @@
             margin-right: 8px;
         }
 
+        /* Адаптация для телефона */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -189,10 +202,34 @@
 
             .header-title {
                 font-size: 30px;
+                letter-spacing: 3px;
             }
 
             h2 {
                 font-size: 20px;
+            }
+
+            thead th {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-cell img {
+                max-width: 80px;
+                max-height: 70px;
+            }
+            .photo-cell {
+                width: 100px;
+            }
+            thead th:first-child {
+                width: 100px;
+            }
+            .header-title {
+                font-size: 24px;
+            }
+            tbody td {
+                padding: 10px 6px;
             }
         }
 
@@ -213,12 +250,13 @@
     </style>
 </head>
 <body>
-
 <div class="container">
 
+    <!-- ЗАГОЛОВОК -->
     <div class="header-title">deserts <span>x.lovelli</span></div>
     <div class="subtitle">🍰 Каталог десертов • 26 основных + 2 сезонных</div>
 
+    <!-- ОСНОВНАЯ ТАБЛИЦА -->
     <h2>Основные десерты</h2>
 
     <table>
@@ -574,20 +612,11 @@
                     5. Белый велюр (краситель зелёный)
                 </td>
             </tr>
-            <!-- 27. Дубай -->
-            <tr>
-                <td class="photo-cell">
-                    <img src="media/image9.jpeg" alt="Дубай" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'photo-placeholder\'>&#9889; Фото не найдено</span>'">
-                </td>
-                <td><span class="row-number">27</span>Дубай</td>
-                <td>
-                    1. Фисташковая начинка (тесто катаифи, фисташковая паста, белый шоколад)<br>
-                    2. Велюр шоколадный
-                </td>
-            </tr>
+
         </tbody>
     </table>
 
+    <!-- СЕЗОННЫЕ ДЕСЕРТЫ -->
     <h2>🌸 СЕЗОННЫЕ ДЕСЕРТЫ</h2>
 
     <table>
@@ -631,48 +660,48 @@
     </table>
 
 </div>
-<!-- Кнопка "Наверх" -->
+
+<!-- КНОПКА "НАВЕРХ" -->
 <button onclick="topFunction()" id="topBtn" title="Наверх">⬆</button>
 
 <style>
-#topBtn {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 99;
-    font-size: 26px;
-    border: none;
-    outline: none;
-    background: #4a3520;
-    color: white;
-    cursor: pointer;
-    padding: 15px 20px;
-    border-radius: 50%;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
-}
-#topBtn:hover {
-    background: #c4956a;
-    transform: scale(1.1);
-}
+    #topBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 99;
+        font-size: 26px;
+        border: none;
+        outline: none;
+        background: #1a1a1a;
+        color: white;
+        cursor: pointer;
+        padding: 15px 20px;
+        border-radius: 50%;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        transition: 0.3s;
+        font-family: 'Montserrat', sans-serif;
+    }
+    #topBtn:hover {
+        background: #a67c52;
+        transform: scale(1.05);
+    }
 </style>
 
 <script>
-// Показываем кнопку, когда страница прокручена вниз
-window.onscroll = function() {
-    let btn = document.getElementById("topBtn");
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        btn.style.display = "block";
-    } else {
-        btn.style.display = "none";
+    window.onscroll = function() {
+        let btn = document.getElementById("topBtn");
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    };
+    function topFunction() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-};
-
-// Плавный подъём наверх
-function topFunction() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
 </script>
+
 </body>
 </html>
